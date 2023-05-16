@@ -2,8 +2,8 @@ import './style.css';
 import { allMexicoStates } from './data/dataFilters/mexicoStates';
 import { partnersOrdered } from './components/displayer';
 import { partnersImages } from './data/imagesPartners/partnersImages';
-import { allOffices } from './data/oficinasRegionales/oficinasRegionales';
-import { Partners } from './typings/types';
+// import { allOffices } from './data/oficinasRegionales/oficinasRegionales';
+// import { Partners } from './typings/types';
 import { AllORImages } from './data/oficinasRegionales/ORImages';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
