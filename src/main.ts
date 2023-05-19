@@ -200,7 +200,9 @@ const filterPartners = () => {
 								</a>
 							</div>
 							<div>
-								<p class='text-sm text-gray-500 flex items-center'>${partner.phone}</p>
+								<a href="tel:${partner.phone}">
+									<p class='text-sm text-gray-500 flex items-center'>${partner.phone}</p>
+								</a>
 							</div>
 						</div>
 
