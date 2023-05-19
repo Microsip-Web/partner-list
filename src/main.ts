@@ -168,7 +168,7 @@ const filterPartners = () => {
 							</div>`
 								: ''
 						}
-            <p class='font-bold text-md text-ms-text-black mb-2'>${
+            <p class='font-bold text-md text-ms-text-black mb-1'>${
 							// if isOffice is true and equal to Torreón display Torreón
 							// partner.isOffice  ? 'Oficina Regional' : partner.inPageName
 							partner.isOffice ? '' : partner.inPageName.toUpperCase()
@@ -192,9 +192,12 @@ const filterPartners = () => {
 
 						<div class='flex items-center'>
 							<div class='mr-1'>
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
-								</svg>
+								<!--link to phone clickable on icon-->
+								<a href="tel:${partner.phone}">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+									</svg>
+								</a>
 							</div>
 							<div>
 								<p class='text-sm text-gray-500 flex items-center'>${partner.phone}</p>
@@ -202,14 +205,26 @@ const filterPartners = () => {
 						</div>
 
 						<div class='flex items-center'>
-							<div class='mr-1'>
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-								<path stroke-linecap="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
-								</svg>
-							</div>
-							<div>
-								<p class='text-sm text-gray-500 flex items-center break-all'>${partner.email}</p>
-							</div>
+							${
+								// if partner has email, display email icon
+								partner.email
+									? `
+								<div class='mr-1'>
+								<!--link to email clickable on icon-->
+								<a href="mailto:${partner.email}">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+									<path stroke-linecap="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
+									</svg>
+								</a>
+								</div>
+								<!--
+								<div>
+									<p class='text-sm text-gray-500 flex items-center break-all'>${partner.email}</p>
+								</div>
+								-->
+								`
+									: ''
+							}
 						</div>
                     
           </div>
