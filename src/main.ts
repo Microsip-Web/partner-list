@@ -9,34 +9,61 @@ import { AllORImages } from './data/oficinasRegionales/ORImages';
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class='font-sora'>
     
-		<div class='flex justify-between items-center max-w-6xl mx-auto px-4 py-10'>
+		<div class='
+		flex flex-col justify-between items-center max-w-6xl mx-auto px-4 py-10
+		lg:flex-row
+		'>
 			<div>
 				<h1 class='text-6xl font-bold mb-10 text-ms-text-black'>Contacta a un Partner</h1>
-			<div id="filtersContainer">
+			<div id="filtersContainer" class="
+			grid grid-cols-1 gap-6 max-w-6xl mx-auto mt-12 px-4
+			lg:grid-cols-3
+			">
+
+			<div class="
+				flex flex-col
+			">
+				<label for="selectState" class='text-sm text-gray-500'>Estado</label>
 				<select id="selectState"
-					class='bg-ms-dd-gray font-semibold appearance-none border-2 border-gray-200 rounded-md py-2 px-4 mr-3 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
+								class=' bg-ms-dd-gray font-semibold  border-2 border-gray-200 rounded-md py-2 pl-2 pr-8 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
 				>
 					<option value="all">Estado (Todos)</option>
 					${allMexicoStates.map((state) => `<option value="${state}">${state}</option>`)}
-
-				</select>
-
+			</select>
+			</div>
+      
+			<div class="
+			flex flex-col
+		">
+				<label for="selectCertification" class='text-sm text-gray-500'>Nivel</label>
 				<select id="selectCertification"
-					class='bg-ms-dd-gray font-semibold appearance-none border-2 border-gray-200 rounded-md py-2 px-4 mr-3 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
-				>
+					class='bg-ms-dd-gray font-semibold border-2 border-gray-200 rounded-md py-2 pl-2 pr-8 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
+					>
 					<option value="all">Nivel (Todos)</option>
 					<option value="2">Bronce</option>
 					<option value="3">Plata</option>
 					<option value="4">Oro</option>
 					<option value="5">Elite</option>
-				</select>
-
+			</select>
+			</div>
+			
+			<div class="
+			flex flex-col
+		">
+				<label for="selectCertificationAS" class='text-sm text-gray-500'>Certificación</label>
 				<select id="selectCertificationAS"
-					class='bg-ms-dd-gray font-semibold appearance-none border-2 border-gray-200 rounded-md py-2 px-4 mr-3 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
-				>
+					class='bg-ms-dd-gray font-semibold border-2 border-gray-200 rounded-md py-2 pl-2 pr-8 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
+					>
 					<option value="all">Certificación (Todas)</option>
 					<option value="as">Administrador de Sucursales</option>				
 				</select>
+			</div>
+		  
+		
+
+				
+
+				
 
 				<!--
 				<button id="filterButton"class='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded'>Filter</button>
@@ -45,12 +72,16 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     	</div>
 			</div>
 			<figure>
-				<img class='w-96 h-96' src=https://uploads-ssl.webflow.com/627983ccef617d453b9485ad/62c92e4f9749a0d0457f663d_Distribuidores-Microsip.webp alt="Distribuidores Microsip" />
+				<img class='w-96 h-auto' src=https://uploads-ssl.webflow.com/627983ccef617d453b9485ad/62c92e4f9749a0d0457f663d_Distribuidores-Microsip.webp alt="Distribuidores Microsip" />
 			</figure>
 		</div>
 
 		<section class='bg-ms-section-gray py-12'>
-			<div id="partnersContainer"class="grid grid-cols-3 gap-6 max-w-6xl mx-auto mt-12"></div> 
+			<div id="partnersContainer"class="
+			grid grid-cols-1 gap-6 max-w-6xl mx-auto mt-12 px-4
+			md:grid-cols-2
+			lg:grid-cols-3
+			"></div> 
 		</section>
     
   </div>
@@ -108,7 +139,7 @@ const filterPartners = () => {
 		partnersContainer.innerHTML += `
       <div class="${
 				partner.isOffice
-					? 'partner bg-white rounded-3xl h-60 p-5'
+					? 'partner bg-white rounded-3xl p-5 h-auto'
 					: 'partner bg-ms-card-gray rounded-3xl h-60 p-5'
 			}
 			">
@@ -167,6 +198,17 @@ const filterPartners = () => {
 							</div>
 							<div>
 								<p class='text-sm text-gray-500 flex items-center'>${partner.phone}</p>
+							</div>
+						</div>
+
+						<div class='flex items-center'>
+							<div class='mr-1'>
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+								<path stroke-linecap="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
+								</svg>
+							</div>
+							<div>
+								<p class='text-sm text-gray-500 flex items-center break-all'>${partner.email}</p>
 							</div>
 						</div>
                     

@@ -4,6 +4,7 @@ import { partners } from '../data/partners';
 const partnersFilteredByIsInPage = partners.filter((partner) => partner.isInPage === true);
 
 export const partnersOrdered = partnersFilteredByIsInPage.sort((a, b) => {
+	/* This code block is sorting an array of partners based on certain criteria. */
 	// Check if either a or b has isOffice property set to true
 	const isAOffice = a.isOffice === true;
 	const isBOffice = b.isOffice === true;
