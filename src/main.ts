@@ -27,7 +27,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 				<select id="selectState"
 								class=' bg-ms-dd-gray font-semibold  border-2 border-gray-200 rounded-md py-2 pl-2 pr-8 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
 				>
-					<option value="all">Estado (Todos)</option>
+					<option value="all">Estados (Todos)</option>
 					${allMexicoStates.map((state) => `<option value="${state}">${state}</option>`)}
 			</select>
 			</div>
@@ -138,16 +138,14 @@ const filterPartners = () => {
 	partnersFilteredByCertificationStateLevelAndAS.forEach((partner) => {
 		partnersContainer.innerHTML += `
       <div class="${
-				partner.isOffice
-					? 'partner bg-white rounded-3xl p-5 h-auto'
-					: 'partner bg-ms-card-gray rounded-3xl h-60 p-5'
-			}
+				partner.isOffice ? 'partner bg-white rounded-3xl  p-5' : 'partner bg-ms-card-gray rounded-3xl p-5'
+			} h-60 
 			">
         <div class="partnerInfo flex flex-row justify-between gap-5">
           <div class="left-box flex flex-col space-y-3">
 					  ${
 							partner.isOffice
-								? `<div class='w-36'>
+								? `<div class='w-28'>
 								<img src="${
 									partner.office === 'Corporativo'
 										? AllORImages.corporativo
@@ -180,9 +178,8 @@ const filterPartners = () => {
 						-->
 						<div class='flex items-center'>
 							<div class='mr-1'>
-								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-								<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+								<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-5" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+									<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
 								</svg>
 							</div>
 							<div>
@@ -194,8 +191,8 @@ const filterPartners = () => {
 							<div class='mr-1'>
 								<!--link to phone clickable on icon-->
 								<a href="tel:${partner.phone}">
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-5" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
 									</svg>
 								</a>
 							</div>
@@ -206,24 +203,22 @@ const filterPartners = () => {
 							</div>
 						</div>
 
-						<div class='flex items-center'>
+						<div class='social-icons flex items-center pt-2'>
 							${
 								// if partner has email, display email icon
 								partner.email
 									? `
-								<div class='mr-1'>
+								<div class='mr-1 p-2 rounded-lg ${partner.isOffice ? 'bg-ms-text-black' : 'bg-white'}'>
 								<!--link to email clickable on icon-->
-								<a href="mailto:${partner.email}">
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-									<path stroke-linecap="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
+								<a href="mailto:${partner.email}" class="${
+											partner.isOffice ? 'text-white' : 'text-ms-text-black'
+									  } hover:text-ms-orange transition duration-300 ease-in-out
+										">
+									<svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+										<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
 									</svg>
 								</a>
 								</div>
-								<!--
-								<div>
-									<p class='text-sm text-gray-500 flex items-center break-all'>${partner.email}</p>
-								</div>
-								-->
 								`
 									: ''
 							}
