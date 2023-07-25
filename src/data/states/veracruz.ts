@@ -68,7 +68,7 @@ export let veracruz: Partners[] = [
 		phone: '(229) 202-0539',
 		certificationName: 'Plata',
 		certificationLevel: 3,
-		certificationAS: false,
+		certificationAS: true,
 		email: 'israel.zavala@zagoti.com.mx',
 	},
 ];

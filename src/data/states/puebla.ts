@@ -88,7 +88,7 @@ export let puebla: Partners[] = [
 		state: 'Puebla',
 		city: 'Puebla',
 		inPageName: 'Raymundo Espinosa García',
-		phone: '222 199-1356 / 222 948 1594',
+		phone: '(222) 199-1356',
 		certificationName: 'Bronce',
 		certificationLevel: 2,
 		certificationAS: true,

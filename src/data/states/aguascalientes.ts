@@ -18,7 +18,7 @@ export let aguascalientes: Partners[] = [
 		state: 'Aguascalientes',
 		city: 'Aguascalientes',
 		inPageName: 'Casa de Software de Aguascalientes',
-		phone: '4499783038',
+		phone: '(449) 978-3038',
 		certificationName: 'Bronce',
 		certificationLevel: 2,
 		certificationAS: true,

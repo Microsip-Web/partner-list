@@ -159,6 +159,7 @@ export let coahuila: Partners[] = [
 		certificationAS: false,
 		email: 'alfredo@maldonado.com.mx',
 	},
+
 	{
 		id: 12,
 		isInPage: true,
@@ -289,6 +290,7 @@ export let coahuila: Partners[] = [
 		certificationAS: true,
 		email: 'ventas@consultoresmava.com',
 	},
+
 	{
 		id: 22,
 		isInPage: true,

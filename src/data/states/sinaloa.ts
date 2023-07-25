@@ -58,4 +58,17 @@ export let sinaloa: Partners[] = [
 		certificationAS: false,
 		email: 'todosistemas@prodigy.net.mx',
 	},
+	{
+		id: 4,
+		isInPage: true,
+		office: 'Corporativo',
+		state: 'Sinaloa',
+		city: 'Mazatlán',
+		inPageName: 'DANTO SYSTEMS',
+		phone: '(627) 522-0140',
+		certificationName: 'Plata',
+		certificationLevel: 3,
+		certificationAS: true,
+		email: 'alberto@danto.mx',
+	},
 ];

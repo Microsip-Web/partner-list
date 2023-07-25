@@ -57,13 +57,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 					<option value="all">Certificación (Todas)</option>
 					<option value="as">Administrador de Sucursales</option>				
 				</select>
-			</div>
-		  
-		
-
-				
-
-				
+			</div>		
 
 				<!--
 				<button id="filterButton"class='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded'>Filter</button>
@@ -135,11 +129,12 @@ const filterPartners = () => {
 	// get partners container
 	partnersContainer.innerHTML = '';
 	// add partners to partners container
-	partnersFilteredByCertificationStateLevelAndAS.forEach((partner) => {
+	partnersFilteredByCertificationStateLevelAndAS.forEach((partner, index) => {
 		partnersContainer.innerHTML += `
       <div class="${
 				partner.isOffice ? 'partner bg-white rounded-3xl  p-5' : 'partner bg-ms-card-gray rounded-3xl p-5'
-			} h-60 
+			} h-64 
+			key-${index}
 			">
         <div class="partnerInfo flex flex-row justify-between gap-5">
           <div class="left-box flex flex-col space-y-3">

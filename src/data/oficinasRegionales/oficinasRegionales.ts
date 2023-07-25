@@ -108,7 +108,7 @@ export let oficinaOccidente: Partners = {
 	office: 'Occidente',
 	state: 'Jalisco' || 'Colima' || 'Michoacán' || 'Nayarit' || 'Sinaloa',
 	// state: ['Jalisco', 'Colima', 'Michoacán', 'Nayarit', 'Sinaloa'],
-	city: 'Guadalajara',
+	city: 'Zapopan',
 	inPageName: 'Oficina Regional de Occidente',
 	phone: '(333) 647-4305',
 	certificationName: 'NA',

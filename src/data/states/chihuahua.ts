@@ -42,7 +42,7 @@ export let chihuahua: Partners[] = [
 		state: 'Chihuahua',
 		city: 'Chihuahua',
 		inPageName: 'SOLUTEC',
-		phone: '(614) 354-9134 antes (614) 484-8040',
+		phone: '(614) 354-9134',
 		certificationName: 'Elite',
 		certificationLevel: 5,
 		certificationAS: true,
