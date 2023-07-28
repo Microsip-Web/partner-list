@@ -133,7 +133,7 @@ const filterPartners = () => {
 		partnersContainer.innerHTML += `
       <div class="${
 				partner.isOffice ? 'partner bg-white rounded-3xl  p-5' : 'partner bg-ms-card-gray rounded-3xl p-5'
-			} h-64 
+			} h-64
 			key-${index}
 			">
         <div class="partnerInfo flex flex-row justify-between gap-5">
@@ -229,8 +229,9 @@ const filterPartners = () => {
 						</div>
                     
           </div>
-          <div class="right-box flex flex-col">
-            <div class='w-20 m-2'>
+          <div class="right-box grid grid-rows-[auto, auto] place-items-end h-full">
+            <div class='w-24 m-2 
+						'>
               <img src="${
 								partner.isOffice
 									? ''
@@ -243,7 +244,9 @@ const filterPartners = () => {
 									: partnersImages.Elite
 							}"/>
             </div>
-            <div class='w-20 m-1'>
+            <div class='w-20 m-1 
+							
+						'>
               <img src="${partner.isOffice ? '' : partner.certificationAS ? partnersImages.AS : ''}"/>
             </div>
           </div>
