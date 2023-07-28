@@ -10,6 +10,8 @@ const golfo = 'https://uploads-ssl.webflow.com/627983ccef617d453b9485ad/6463b1fb
 const centro = 'https://uploads-ssl.webflow.com/627983ccef617d453b9485ad/6463b1fbaa053f2ab11ae2cc_Centro.png';
 const bajio = 'https://uploads-ssl.webflow.com/627983ccef617d453b9485ad/6463b1fbf6cba9eb00217ec1_Bajio.png';
 const cdmx = 'https://uploads-ssl.webflow.com/627983ccef617d453b9485ad/6463b1fbef8d61d2ac68160c_CDMX.png';
+const logoMS =
+	'https://uploads-ssl.webflow.com/627983ccef617d453b9485ad/63dd2f39e67adc5d814e9ec6_Logo-positivo%201.svg';
 
 export const AllORImages = {
 	corporativo,
@@ -20,4 +22,5 @@ export const AllORImages = {
 	centro,
 	bajio,
 	cdmx,
+	logoMS,
 };

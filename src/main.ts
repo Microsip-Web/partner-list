@@ -142,22 +142,30 @@ const filterPartners = () => {
 							partner.isOffice
 								? `<div class='w-28'>
 								<img src="${
-									partner.office === 'Corporativo'
-										? AllORImages.corporativo
-										: partner.office === 'Sureste'
-										? AllORImages.sureste
-										: partner.office === 'Noreste'
-										? AllORImages.noreste
-										: partner.office === 'Occidente'
-										? AllORImages.occidente
-										: partner.office === 'Golfo'
-										? AllORImages.golfo
-										: partner.office === 'Centro'
-										? AllORImages.centro
-										: partner.office === 'Bajío'
-										? AllORImages.bajio
-										: AllORImages.cdmx
+									// import logoMS from AllORImages
+									AllORImages.logoMS
 								}"/>
+								<p class="
+								text-xs text-gray-500 
+								">
+									${
+										partner.office === 'Corporativo'
+											? 'Corporativo'.toUpperCase()
+											: partner.office === 'Sureste'
+											? 'Sureste'.toUpperCase()
+											: partner.office === 'Noreste'
+											? 'Noreste'.toUpperCase()
+											: partner.office === 'Occidente'
+											? 'Occidente'.toUpperCase()
+											: partner.office === 'Golfo'
+											? 'Golfo'.toUpperCase()
+											: partner.office === 'Centro'
+											? 'Centro'.toUpperCase()
+											: partner.office === 'Bajío'
+											? 'Bajío'.toUpperCase()
+											: 'Oficina CDMX'.toUpperCase()
+									}
+								</p>
 							</div>`
 								: ''
 						}
@@ -209,9 +217,10 @@ const filterPartners = () => {
 											partner.isOffice ? 'text-white' : 'text-ms-text-black'
 									  } hover:text-ms-orange transition duration-300 ease-in-out
 										">
-									<svg xmlns="http://www.w3.org/2000/svg" class="w-6" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-										<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
-									</svg>
+										<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+											<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 2-8.4 7.05a1 1 0 0 1-1.2 0L1 2m18 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1m18 0v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2"/>
+										</svg>
+									
 								</a>
 								</div>
 								`
