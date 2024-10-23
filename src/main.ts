@@ -8,33 +8,21 @@ import { AllORImages } from './data/oficinasRegionales/ORImages';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div class='font-sora'>
-    
-		<div class='
-		flex flex-col justify-between items-center max-w-6xl mx-auto px-4 py-10
-		lg:flex-row
-		'>
+		<div class='flex flex-col-reverse justify-between items-center max-w-6xl mx-auto px-4 py-10 lg:flex-row'>
 			<div>
 				<h1 class='text-6xl font-bold mb-10 text-ms-text-black'>Contacta a un Partner</h1>
-			<div id="filtersContainer" class="
-			grid grid-cols-1 gap-6 max-w-6xl mx-auto mt-12 px-4
-			lg:grid-cols-3
-			">
-
-			<div class="
-				flex flex-col
-			">
-				<label for="selectState" class='text-sm text-gray-500'>Estado</label>
-				<select id="selectState"
-								class=' bg-ms-dd-gray font-semibold  border-2 border-gray-200 rounded-md py-2 pl-2 pr-8 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
+			<div id="filtersContainer" class="grid grid-cols-1 gap-6 max-w-6xl mx-auto mt-12 px-4 lg:grid-cols-3">
+				<div class="flex flex-col">
+					<label for="selectState" class='text-sm text-gray-500'>Estado</label>
+					<select id="selectState"
+								class='bg-ms-dd-gray font-semibold  border-2 border-gray-200 rounded-md py-2 pl-2 pr-8 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
 				>
 					<option value="all">Estados (Todos)</option>
-					${allMexicoStates.map((state) => `<option value="${state}">${state}</option>`)}
-			</select>
-			</div>
+						${allMexicoStates.map((state) => `<option value="${state}">${state}</option>`)}
+					</select>
+				</div>
       
-			<div class="
-			flex flex-col
-		">
+			<div class="flex flex-col">
 				<label for="selectCertification" class='text-sm text-gray-500'>Nivel</label>
 				<select id="selectCertification"
 					class='bg-ms-dd-gray font-semibold border-2 border-gray-200 rounded-md py-2 pl-2 pr-8 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
@@ -44,12 +32,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 					<option value="3">Plata</option>
 					<option value="4">Oro</option>
 					<option value="5">Elite</option>
-			</select>
+				</select>
 			</div>
 			
-			<div class="
-			flex flex-col
-		">
+			<div class="flex flex-col">
 				<label for="selectCertificationAS" class='text-sm text-gray-500'>Certificación</label>
 				<select id="selectCertificationAS"
 					class='bg-ms-dd-gray font-semibold border-2 border-gray-200 rounded-md py-2 pl-2 pr-8 h-12 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-ms-orange'
@@ -57,123 +43,110 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 					<option value="all">Certificación (Todas)</option>
 					<option value="as">Administrador de Sucursales</option>				
 				</select>
-			</div>		
-
-				<!--
-				<button id="filterButton"class='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded'>Filter</button>
-				-->
-				
-    	</div>
+			</div>
+    </div>
 			</div>
 			<figure>
-				<img class='w-96 h-auto' src=https://uploads-ssl.webflow.com/627983ccef617d453b9485ad/62c92e4f9749a0d0457f663d_Distribuidores-Microsip.webp alt="Distribuidores Microsip" />
+				<img class='w-96 h-auto' src=https://cdn.prod.website-files.com/627983ccef617d453b9485ad/66dbb6ddb74ad2e23c4355aa_ContactaaunPartner.png alt="Distribuidores Microsip" />
 			</figure>
 		</div>
 
 		<section class='bg-ms-section-gray py-12'>
-			<div id="partnersContainer"class="
-			grid grid-cols-1 gap-6 max-w-6xl mx-auto mt-12 px-4
-			md:grid-cols-2
-			lg:grid-cols-3
-			"></div> 
-		</section>
-    
+			<div id="partnersContainer"class="grid grid-cols-1 gap-6 max-w-6xl mx-auto mt-12 px-4 md:grid-cols-2 lg:grid-cols-3"></div> 
+		</section>  
   </div>
 `;
 
 // function to filter partners by state of select element
 const filterPartners = () => {
-	// get select element
-	const selectState = document.getElementById('selectState') as HTMLSelectElement;
-	// get value of select element
-	const selectStateValue = selectState.value;
-	// get select element
-	const selectCertification = document.getElementById('selectCertification') as HTMLSelectElement;
-	// get value of select element
-	const selectCertificationValue = selectCertification.value;
-	// get select element
-	const selectCertificationAS = document.getElementById('selectCertificationAS') as HTMLSelectElement;
-	// get value of select element
-	const selectCertificationASValue = selectCertificationAS.value;
-	// get partners container
-	const partnersContainer = document.getElementById('partnersContainer') as HTMLDivElement;
-	// get partners
-	const partners = partnersOrdered;
-	// filter partners by state; also add the partners that are offices to its matching state,
-	const partnersFilteredByState = partners.filter((partner) => {
-		if (selectStateValue === 'all') {
-			// return only partners that are not offices
-			return !partner.isOffice;
-		} else {
-			return partner.state === selectStateValue;
-		}
-	});
-	// filter partners by certification level
-	const partnersFilteredByCertification = partnersFilteredByState.filter((partner) => {
-		if (selectCertificationValue === 'all') {
-			return partner;
-		} else {
-			// return the certification but still include the offices
-			return partner.certificationLevel === Number(selectCertificationValue) || partner.isOffice;
-		}
-	});
-	// filter partners by certification AS, check if the partner has certificationAS equal to true
-	const partnersFilteredByCertificationStateLevelAndAS = partnersFilteredByCertification.filter((partner) => {
-		if (selectCertificationASValue === 'all') {
-			return partner;
-		} else {
-			return partner.certificationAS === true;
-		}
-	});
+  // get select element
+  const selectState = document.getElementById('selectState') as HTMLSelectElement;
+  // get value of select element
+  const selectStateValue = selectState.value;
+  // get select element
+  const selectCertification = document.getElementById('selectCertification') as HTMLSelectElement;
+  // get value of select element
+  const selectCertificationValue = selectCertification.value;
+  // get select element
+  const selectCertificationAS = document.getElementById('selectCertificationAS') as HTMLSelectElement;
+  // get value of select element
+  const selectCertificationASValue = selectCertificationAS.value;
+  // get partners container
+  const partnersContainer = document.getElementById('partnersContainer') as HTMLDivElement;
+  // get partners
+  const partners = partnersOrdered;
+  // filter partners by state; also add the partners that are offices to its matching state,
+  const partnersFilteredByState = partners.filter((partner) => {
+    if (selectStateValue === 'all') {
+      // return only partners that are not offices
+      return !partner.isOffice;
+    } else {
+      return partner.state === selectStateValue;
+    }
+  });
+  // filter partners by certification level
+  const partnersFilteredByCertification = partnersFilteredByState.filter((partner) => {
+    if (selectCertificationValue === 'all') {
+      return partner;
+    } else {
+      // return the certification but still include the offices
+      return partner.certificationLevel === Number(selectCertificationValue) || partner.isOffice;
+    }
+  });
+  // filter partners by certification AS, check if the partner has certificationAS equal to true
+  const partnersFilteredByCertificationStateLevelAndAS = partnersFilteredByCertification.filter((partner) => {
+    if (selectCertificationASValue === 'all') {
+      return partner;
+    } else {
+      return partner.certificationAS === true;
+    }
+  });
 
-	// get partners container
-	partnersContainer.innerHTML = '';
-	// add partners to partners container
-	partnersFilteredByCertificationStateLevelAndAS.forEach((partner, index) => {
-		partnersContainer.innerHTML += `
-      <div class="${
-				partner.isOffice ? 'partner bg-white rounded-3xl  p-5' : 'partner bg-ms-card-gray rounded-3xl p-5'
-			} h-64
+  // get partners container
+  partnersContainer.innerHTML = '';
+  // add partners to partners container
+  partnersFilteredByCertificationStateLevelAndAS.forEach((partner, index) => {
+    partnersContainer.innerHTML += `
+      <div class="${partner.isOffice ? 'partner bg-white rounded-3xl  p-5' : 'partner bg-ms-card-gray rounded-3xl p-5'
+      } h-64
 			key-${index}
 			">
         <div class="partnerInfo flex flex-row justify-between gap-5">
           <div class="left-box flex flex-col">
-					  ${
-							partner.isOffice
-								? `<div class='w-28'>
+					  ${partner.isOffice
+        ? `<div class='w-28'>
 								<img src="${
-									// import logoMS from AllORImages
-									AllORImages.logoMS
-								}"/>
+        // import logoMS from AllORImages
+        AllORImages.logoMS
+        }"/>
 								<p class="
 								text-xs text-gray-500 
 								">
-									${
-										partner.office === 'Corporativo'
-											? 'Corporativo'.toUpperCase()
-											: partner.office === 'Sureste'
-											? 'Sureste'.toUpperCase()
-											: partner.office === 'Noreste'
-											? 'Noreste'.toUpperCase()
-											: partner.office === 'Occidente'
-											? 'Occidente'.toUpperCase()
-											: partner.office === 'Golfo'
-											? 'Golfo'.toUpperCase()
-											: partner.office === 'Centro'
-											? 'Centro'.toUpperCase()
-											: partner.office === 'Bajío'
-											? 'Bajío'.toUpperCase()
-											: 'Oficina CDMX'.toUpperCase()
-									}
+									${partner.office === 'Corporativo'
+          ? 'Corporativo'.toUpperCase()
+          : partner.office === 'Sureste'
+            ? 'Sureste'.toUpperCase()
+            : partner.office === 'Noreste'
+              ? 'Noreste'.toUpperCase()
+              : partner.office === 'Occidente'
+                ? 'Occidente'.toUpperCase()
+                : partner.office === 'Golfo'
+                  ? 'Golfo'.toUpperCase()
+                  : partner.office === 'Centro'
+                    ? 'Centro'.toUpperCase()
+                    : partner.office === 'Bajío'
+                      ? 'Bajío'.toUpperCase()
+                      : 'Oficina CDMX'.toUpperCase()
+        }
 								</p>
 							</div>`
-								: ''
-						}
+        : ''
+      }
             <p class='font-bold text-md text-ms-text-black mb-2'>${
-							// if isOffice is true and equal to Torreón display Torreón
-							// partner.isOffice  ? 'Oficina Regional' : partner.inPageName
-							partner.isOffice ? '' : partner.inPageName.toUpperCase()
-						}
+      // if isOffice is true and equal to Torreón display Torreón
+      // partner.isOffice  ? 'Oficina Regional' : partner.inPageName
+      partner.isOffice ? '' : partner.inPageName.toUpperCase()
+      }
 						
 						</p>
 						<!--
@@ -208,14 +181,13 @@ const filterPartners = () => {
 
 						<div class='social-icons flex items-center'>
 							${
-								// if partner has email, display email icon
-								partner.email
-									? `
+      // if partner has email, display email icon
+      partner.email
+        ? `
 								<div class='mr-1 p-2 rounded-lg ${partner.isOffice ? 'bg-ms-text-black' : 'bg-white'}'>
 								<!--link to email clickable on icon-->
-								<a href="mailto:${partner.email}" class="${
-											partner.isOffice ? 'text-white' : 'text-ms-text-black'
-									  } hover:text-ms-orange transition duration-300 ease-in-out
+								<a href="mailto:${partner.email}" class="${partner.isOffice ? 'text-white' : 'text-ms-text-black'
+        } hover:text-ms-orange transition duration-300 ease-in-out
 										">
 										<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
 											<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 2-8.4 7.05a1 1 0 0 1-1.2 0L1 2m18 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1m18 0v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2"/>
@@ -225,36 +197,35 @@ const filterPartners = () => {
 								</a>
 								</div>
 								`
-									: ''
-							}
+        : ''
+      }
 						</div>
                     
           </div>
           <div class="right-box grid grid-rows-[auto, auto] place-items-end h-full">
             <div class='w-24 m-2 
 						'>
-              <img src="${
-								partner.isOffice
-									? ''
-									: partner.certificationName === 'Bronce'
-									? partnersImages.Bronce
-									: partner.certificationName === 'Plata'
-									? partnersImages.Plata
-									: partner.certificationName === 'Oro'
-									? partnersImages.Oro
-									: partnersImages.Elite
-							}"/>
+              <img src="${partner.isOffice
+        ? ''
+        : partner.certificationName === 'Bronce'
+          ? partnersImages.Bronce
+          : partner.certificationName === 'Plata'
+            ? partnersImages.Plata
+            : partner.certificationName === 'Oro'
+              ? partnersImages.Oro
+              : partnersImages.Elite
+      }"/>
             </div>
             <div class='w-20 m-1 
 							
 						'>
-              <img src="${partner.isOffice ? '' : partner.certificationAS ? partnersImages.AS : ''}"/>
+              <img src="${partner.certificationAS ? partnersImages.AS : ''}"/>
             </div>
           </div>
         </div>
       </div>
     `;
-	});
+  });
 };
 
 // add event listener to the button
@@ -275,6 +246,6 @@ selectCertificationAS.addEventListener('change', filterPartners);
 
 // onload change select element value of selectState to 'Ciudad de México'
 window.onload = function () {
-	selectState.value = 'Ciudad de México';
-	filterPartners();
+  selectState.value = 'Ciudad de México';
+  filterPartners();
 };

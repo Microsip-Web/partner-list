@@ -17,7 +17,7 @@ export let campeche: Partners[] = [
 		state: 'Campeche',
 		city: 'Ciudad del Carmen',
 		inPageName: 'Casa de software Ciudad del Carmen',
-		phone: '(938) 384-1584',
+		phone: '(938) 136-8000',
 		certificationName: 'Plata',
 		certificationLevel: 3,
 		certificationAS: true,

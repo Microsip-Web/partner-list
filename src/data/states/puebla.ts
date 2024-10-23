@@ -126,17 +126,17 @@ export let puebla: Partners[] = [
 	},
 
 	// Partner 8
-	{
-		id: 8,
-		isInPage: true,
-		office: 'Golfo',
-		state: 'Puebla',
-		city: 'Puebla',
-		inPageName: 'Carlos Domínguez Lozano',
-		phone: '(222) 232-2606',
-		certificationName: 'Bronce',
-		certificationLevel: 2,
-		certificationAS: true,
-		email: 'contacto@net-solution.com.mx',
-	},
+	// {
+	// 	id: 8,
+	// 	isInPage: true,
+	// 	office: 'Golfo',
+	// 	state: 'Puebla',
+	// 	city: 'Puebla',
+	// 	inPageName: 'Carlos Domínguez Lozano',
+	// 	phone: '(222) 232-2606',
+	// 	certificationName: 'Bronce',
+	// 	certificationLevel: 2,
+	// 	certificationAS: true,
+	// 	email: 'contacto@net-solution.com.mx',
+	// },
 ];

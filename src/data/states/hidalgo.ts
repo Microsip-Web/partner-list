@@ -25,7 +25,7 @@ export let hidalgo: Partners[] = [
 		office: 'Centro',
 		state: 'Hidalgo',
 		city: 'Pachuca de Soto',
-		inPageName: 'Gerardo Acosta',
+    inPageName: 'Mangotec',
 		phone: '(771) 713-3336',
 		certificationName: 'Plata',
 		certificationLevel: 3,

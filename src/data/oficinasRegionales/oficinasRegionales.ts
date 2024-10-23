@@ -16,7 +16,7 @@ export let corporativo: Partners[] = [
 		phone: '(871) 720-0302',
 		certificationName: 'NA',
 		certificationLevel: 0,
-		certificationAS: true,
+		certificationAS: false, //it does have AS, but for this case it's not in the page
 		email: 'contacto@microsip.com',
 	},
 ];
@@ -60,12 +60,12 @@ export let oficinaCentro: Partners = {
 	office: 'Centro',
 	state: 'Estado de México' || 'Guerrero' || 'Hidalgo' || 'Morelos',
 	// state: ['Estado de México', 'Guerrero', 'Hidalgo', 'Morelos'],
-	city: 'Ciudad de México',
+	city: 'Benito Juárez',
 	inPageName: 'Oficina Regional del Centro',
 	phone: '(55) 5530-0042',
 	certificationName: 'NA',
 	certificationLevel: 0,
-	certificationAS: true,
+	certificationAS: false, //it does have AS, but for this case it's not in the page
 	email: 'eduardo@microsipmx.mx',
 };
 
@@ -129,7 +129,7 @@ export let oficinaSureste: Partners = {
 	phone: '(999) 926-3228',
 	certificationName: 'NA',
 	certificationLevel: 0,
-	certificationAS: false,
+	certificationAS: true,
 	email: 'carlos@microsipste.com',
 };
 
