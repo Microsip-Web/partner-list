@@ -51,7 +51,7 @@ export let chiapas: Partners[] = [
 		office: 'Sureste',
 		state: 'Chiapas',
 		city: 'Tuxtla Gutiérrez',
-		inPageName: 'PROPSESA',
+    inPageName: 'Doctor PYME',
 		phone: '(961) 146-4443',
 		certificationName: 'Plata',
 		certificationLevel: 3,
