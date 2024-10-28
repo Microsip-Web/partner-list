@@ -34,7 +34,7 @@ export let oficinaBajio: Partners = {
 	certificationName: 'NA',
 	certificationLevel: 0,
 	certificationAS: false,
-	email: 'mariela@microsip.com',
+  email: 'mariajose.villarreal@microsip.com',
 };
 
 export let oficinaCDMX: Partners = {
